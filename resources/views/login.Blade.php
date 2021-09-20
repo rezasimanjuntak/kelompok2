@@ -15,6 +15,12 @@
 
             </div>
             <div class="col-sm">
+                {{-- pesan Error --}}
+                @if(\Session::has('pesan'))
+                <div class="alert alert-danger" role="alert">
+                    {{ Session::get('pesan') }}
+                  </div>
+                @endif
                 <form method="post" action="{{ route('auth.verify') }}">
                     @csrf
                     <div class="form-group">
