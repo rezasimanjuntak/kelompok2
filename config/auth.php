@@ -40,6 +40,23 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admin',
+        ],
+        'superadmin' => [
+            'driver' => 'session',
+            'provider' => 'superadmin',
+        ],
+        'superadmin-api' => [
+            'driver' => 'token',
+            'provider' => 'superadmin',
+        ],
+
     ],
 
     /*
@@ -69,6 +86,14 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'superadmin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SuperAdmin::class,
+        ],
     ],
 
     /*
