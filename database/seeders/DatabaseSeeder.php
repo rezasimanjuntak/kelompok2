@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +17,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        DB::table('admins')->insert([
+            'name' => Str::random(10),
+            'role' => 'sa',
+            'email' => 'sa@mail.com',
+            'password' => Hash::make('password'),
+
+        ]);
+        DB::table('admins')->insert([
+            'name' => Str::random(10),
+            'role' => 'admin',
+            'email' => 'admin@mail.com',
+            'password' => Hash::make('password'),
+
+        ]);
     }
 }
