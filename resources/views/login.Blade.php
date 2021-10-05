@@ -39,6 +39,9 @@
 
                     <p></p>
                     <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <p>&nbsp;</p>
+                    <span>{{date('Y-m-d')}}</span>
                 </form>
             </div>
             <div class="col-sm">

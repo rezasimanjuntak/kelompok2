@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\AuthController::class, 'index']);
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->name('auth.index');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'verify'])->name('auth.verify');
+Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
+//admin
+Route::group(['middleware' =>'auth:admin'],function() {
+    Route::prefix('admin')->group(function () {
 
+        Route::get('/dashboard', [App\Http\Controllers\Admin\DashBoardController::class, 'index'])->name('admin.dashboard.index');
 
-Route::get('/dashboard', [App\Http\Controllers\DashBoardController::class, 'index'])->name('dashboard.index')->middleware('auth:admin');
+    });
+});
+//superadmin
+Route::group(['middleware' =>'auth:superadmin'],function() {
+    Route::prefix('superadmin')->group(function () {
+
+        Route::get('/dashboard', [App\Http\Controllers\Superadmin\DashBoardController::class, 'index'])->name('superadmin.dashboard.index');
+
+    });
+});
+
