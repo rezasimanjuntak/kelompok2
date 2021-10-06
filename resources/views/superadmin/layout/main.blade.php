@@ -61,16 +61,18 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+                <span>Data</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
+                    <a class="collapse-item" href="cards.html">Produk</a>
+                    <a class="collapse-item" href="cards.html">Jenis Produk</a>
+                    <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>
         </li>
+
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
@@ -361,6 +363,18 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-4 text-gray-800">{{Session::get('tittle')}}</h1>
+
+                @if(\Session::has('pesan-gagal'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ Session::get('pesan-gagal') }}
+                    </div>
+                @endif
+
+                @if(\Session::has('pesan-berhasil'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('pesan-berhasil') }}
+                    </div>
+                @endif
 
                 @yield('content')
 

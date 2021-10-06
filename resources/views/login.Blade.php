@@ -21,6 +21,7 @@
                     {{ Session::get('pesan') }}
                   </div>
                 @endif
+
                 <form method="post" action="{{ route('auth.verify') }}">
                     @csrf
                     <div class="form-group">

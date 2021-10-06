@@ -31,7 +31,16 @@ Route::group(['middleware' =>'auth:superadmin'],function() {
     Route::prefix('superadmin')->group(function () {
 
         Route::get('/dashboard', [App\Http\Controllers\Superadmin\DashBoardController::class, 'index'])->name('superadmin.dashboard.index');
+//RoutPengguna
+        Route::get('/pengguna', [App\Http\Controllers\Superadmin\PenggunaController::class, 'index'])->name('superadmin.pengguna.index');
+        Route::get('/pengguna/add', [App\Http\Controllers\Superadmin\PenggunaController::class, 'add'])->name('superadmin.pengguna.add');
+        Route::post('/pengguna/store', [App\Http\Controllers\Superadmin\PenggunaController::class, 'store'])->name('superadmin.pengguna.store');
 
+        Route::get('/pengguna/edit/{id}', [App\Http\Controllers\Superadmin\PenggunaController::class, 'edit'])->name('superadmin.pengguna.edit');
+        Route::post('/pengguna/update/', [App\Http\Controllers\Superadmin\PenggunaController::class, 'update'])->name('superadmin.pengguna.update');
+
+        Route::get('/pengguna/delete/{id}', [App\Http\Controllers\Superadmin\PenggunaController::class, 'delete'])->name('superadmin.pengguna.delete');
     });
+
 });
 
