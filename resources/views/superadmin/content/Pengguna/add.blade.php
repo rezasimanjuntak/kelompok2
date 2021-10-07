@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label >Role</label>
-           <select name="role" class"form-control" required>
+           <select name="role" class "form-control" required>
             <option value="admin">Admin</option>
             <option value="sa">Super Admin</option>
             </select>
