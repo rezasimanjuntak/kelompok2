@@ -8,35 +8,30 @@ use App\Util\Helper;
 
 class AuthController extends Controller
 {
-    public function index()
-    {
-        //hal login
-
+    public function index(){
+        //halaman login
         return view('login');
     }
 
-    public function verify(Request $request)
-    {
+    public function verify(Request $request){
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'admin'])) {
-            // if successful, then redirect to their intended location
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'admin', 'status' => 1])) {
             return redirect()->intended('/admin/dashboard');
-        } else if (Auth::guard('superadmin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'sa'])) {
+        } else if (Auth::guard('superadmin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'sa', 'status' => 1])) {
             return redirect()->intended('/superadmin/dashboard');
-        } else {
-            return redirect('/login')->with('pesan', 'Email dan password salah');
+        }else{
+            //user tidak ditemukan
+            return redirect('/login')->with('pesan','Password yang anda masukan salah');
         }
     }
-
-    public function logout()
-    {
+    public function logout(){
         if (Auth::guard('admin')->check()) {
             Auth::guard('admin')->logout();
-        } elseif (Auth::guard('superadmin')->check()) {
+        }elseif (Auth::guard('superadmin')->check()){
             Auth::guard('superadmin')->logout();
         }
         return redirect('/login');

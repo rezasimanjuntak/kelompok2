@@ -1,13 +1,15 @@
-@extends('admin/layout/main')
-@section('content')
-    Ini adalah Dashboard admin
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
 
+ini adalah dashboard admin
 
+<a href="{{route('auth.logout')}}">Logout</a>
 
-
-
-@endsection
-
+</body>
+</html>
 
 
 

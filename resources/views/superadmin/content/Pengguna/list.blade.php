@@ -24,7 +24,7 @@
                 <td>{{Helper::active($row->status)}}</td>
                 <td>
 
-                    <a onclick="return confirm('Apakah anda yakin?')" href="{{route('superadmin.pengguna.edit',$row->id)}}">Edit</a>
+                    <a onclick="return confirm('Anda Igin Edit Data ?')" href="{{route('superadmin.pengguna.edit',$row->id)}}">Edit</a>
                     <a onclick="return confirm('Apakah anda yakin?')" href="{{route('superadmin.pengguna.delete',$row->id)}}">Hapus</a>
             </tr>
 
