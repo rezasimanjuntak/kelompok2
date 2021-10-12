@@ -28,9 +28,10 @@
                 </td>
                 <td>
 
-                    <a href="{{route('superadmin.pengguna.edit',$row->id)}}">Edit</a>
-                    <a onclick="return confirm('Apakah anda yakin?')" href="{{route('superadmin.pengguna.delete',$row->id)}}">Hapus</a>
-                    <a href="{{route('download_file',$row->image)}}">Download</a>
+                    <a href="{{route('superadmin.pengguna.edit',$row->id)}}"data-toggle="tooltip" data-placement="top" title="Edit data"><i class="fa fa-edit"></i></a>
+                    <a onclick="return confirm('Apakah anda yakin?')" href="{{route('superadmin.pengguna.delete',$row->id)}}"data-toggle="tooltip" data-placement="top" title="Hapus data"><i class="fa fa-trash"></i></a>
+                    <a href="{{route('download_file',$row->image)}}"data-toggle="tooltip" data-placement="top" title="Downlaod file"><i class="fa fa-download"></i></a>
+                </td>
             </tr>
 
         @endforeach
