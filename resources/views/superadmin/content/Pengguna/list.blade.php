@@ -10,6 +10,7 @@
             <th scope="col">Role</th>
             <th scope="col">Email</th>
             <th scope="col">Status</th>
+            <th scope="col">Gambar</th>
             <th scope="col">Aksi</th>
         </tr>
         </thead>
@@ -23,9 +24,13 @@
                 <td>{{$row->email}}</td>
                 <td>{{Helper::active($row->status)}}</td>
                 <td>
+                    <a href="{{route('storage_file',$row->image)}}" target="_blank">{{route('storage_file',$row->image)}}</a>
+                </td>
+                <td>
 
-                    <a onclick="return confirm('Anda Igin Edit Data ?')" href="{{route('superadmin.pengguna.edit',$row->id)}}">Edit</a>
+                    <a href="{{route('superadmin.pengguna.edit',$row->id)}}">Edit</a>
                     <a onclick="return confirm('Apakah anda yakin?')" href="{{route('superadmin.pengguna.delete',$row->id)}}">Hapus</a>
+                    <a href="{{route('download_file',$row->image)}}">Download</a>
             </tr>
 
         @endforeach

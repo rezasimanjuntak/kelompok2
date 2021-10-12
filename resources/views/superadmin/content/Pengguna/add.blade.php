@@ -1,7 +1,7 @@
 @extends('superadmin/layout/main')
 @section('content')
 
-    <form action="{{route('superadmin.pengguna.store')}}" method="post">
+    <form action="{{route('superadmin.pengguna.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label >Name</label>
@@ -19,6 +19,11 @@
             <option value="admin">Admin</option>
             <option value="sa">Super Admin</option>
             </select>
+        </div>
+
+        <div class="form-group">
+            <label >Gambar</label>
+            <input type="file" name="image" accept="image/png,image/jpeg,image/jpg" class="form-control" required>
         </div>
 
         <div class="form-group">

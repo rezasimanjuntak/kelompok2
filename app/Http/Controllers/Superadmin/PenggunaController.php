@@ -27,15 +27,15 @@ class PenggunaController extends Controller
     public function store(Request $request){
         //upload file
         //1.store file to storage 2.getHasNameFromFile (DB)
-        //$request->file('image')->store('public');
-        //$nameImage = $request->file('image')->hashName();
+        $request->file('image')->store('public');
+        $nameImage = $request->file('image')->hashName();
 
         $pengguna = new pengguna();
         $pengguna->name = $request->name;
         $pengguna->role = $request->role;
         $pengguna->email = $request->email;
         $pengguna->password = bcrypt('12345678');
-       // $pengguna->image = $nameImage;
+        $pengguna->image = $nameImage;
 
         try {
             $pengguna->save();

@@ -33,3 +33,25 @@ Route::group(['middleware'=>'auth:superadmin'],function (){
 
     });
 });
+
+Route::get('download/{filename}', function($filename) {
+    $file_path = storage_path('app/public/' . $filename);
+    if (file_exists($file_path)) {
+        return Response::download($file_path, $filename, ['Content-Length: ' . filesize($file_path)]);
+    } else {
+        exit('File yang ada request tidak ditemukan di server kami!');
+    }
+})->where('filename', '[A-Za-z0-9\-\_\.]+')->name('download_file');
+
+
+Route::get('files/{filename}', function ($filename) {
+    $path = storage_path('app/public/' . $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('storage_file');
