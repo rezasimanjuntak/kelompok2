@@ -21,6 +21,7 @@ class CreateAdminTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('token')->nullable();
+            $table->dateTime('expired')->nullable();
             $table->boolean('status')->default(1);
             $table->string('image')->nullable();
             $table->timestamps();

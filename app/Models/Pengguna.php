@@ -10,6 +10,6 @@ class Pengguna extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'name', 'role', 'email', 'password', 'token', 'status',
+        'name', 'role', 'email', 'password', 'token', 'expired','status',
     ];
 }

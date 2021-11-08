@@ -8,7 +8,10 @@ Route::get('/', [App\Http\Controllers\AuthController::class, 'index']);
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'index'])->name('auth.index');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'verify'])->name('auth.verify');
 Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
-
+Route::get('/reset', [App\Http\Controllers\AuthController::class, 'reset'])->name('auth.reset');
+Route::post('/forgot', [App\Http\Controllers\AuthController::class, 'forgot'])->name('auth.forgot');
+Route::get('/password/{email}/{token}', [App\Http\Controllers\AuthController::class, 'password'])->name('auth.password');
+Route::post('/renew', [App\Http\Controllers\AuthController::class, 'renew'])->name('auth.renew');
 //Group Admin
 Route::group(['middleware'=>'auth:admin'],function (){
     Route::prefix('admin')->group(function (){

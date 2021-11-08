@@ -37,6 +37,9 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
+                    <div class="form-group">
+                       <a href="{{route('auth.reset')}}">Reset Password</a>
+                    </div>
 
                     <p></p>
                     <button type="submit" class="btn btn-primary">Submit</button>
