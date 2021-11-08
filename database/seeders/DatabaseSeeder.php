@@ -31,5 +31,27 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
 
         ]);
+        DB::table('categories')->insert ([
+            'id' =>1,
+            'name'=>'Obat Dalam'
+        ]);
+        DB::table('categories')->insert ([
+            'id' =>2,
+            'name'=>'Obat Luar'
+        ]);
+        DB::table('products')->insert ([
+
+            'name'=>'Dumin',
+            'price'=>6000,
+            'stock'=>120,
+            'category_id'=>1,
+        ]);
+        DB::table('products')->insert ([
+
+            'name'=>'Betadine',
+            'price'=>10000,
+            'stock'=>100,
+            'category_id'=>2,
+        ]);
     }
 }

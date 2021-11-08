@@ -67,8 +67,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
-                    <a class="collapse-item" href="cards.html">Produk</a>
-                    <a class="collapse-item" href="cards.html">Jenis Produk</a>
+                    <a class="collapse-item" href="{{route('superadmin.kategori.index')}}">Kategori Produk</a>
+                    <a class="collapse-item" href="{{route('superadmin.produk.index')}}">Jenis Produk</a>
                     <a class="collapse-item" href="cards.html">Transaksi</a>
                 </div>
             </div>

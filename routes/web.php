@@ -30,7 +30,18 @@ Route::group(['middleware'=>'auth:superadmin'],function (){
         Route::post('/pengguna/update', [App\Http\Controllers\Superadmin\PenggunaController::class, 'update'])->name('superadmin.pengguna.update');
 
         Route::get('/pengguna/delete/{id}', [App\Http\Controllers\Superadmin\PenggunaController::class, 'delete'])->name('superadmin.pengguna.delete');
+       //Group Categori
+        Route::get('/kategori', [App\Http\Controllers\Superadmin\CategoryController::class, 'index'])->name('superadmin.kategori.index');
+        Route::get('/kategori/add', [App\Http\Controllers\Superadmin\CategoryController::class, 'add'])->name('superadmin.kategori.add');
+        Route::post('/kategori/store', [App\Http\Controllers\Superadmin\CategoryController::class, 'store'])->name('superadmin.kategori.store');
+        Route::get('/kategori/edit/{id}', [App\Http\Controllers\Superadmin\CategoryController::class, 'edit'])->name('superadmin.kategori.edit');
+        Route::post('/kategori/update', [App\Http\Controllers\Superadmin\CategoryController::class, 'update'])->name('superadmin.kategori.update');
 
+        Route::get('/kategori/delete/{id}', [App\Http\Controllers\Superadmin\CategoryController::class, 'delete'])->name('superadmin.kategori.delete');
+        //Group Product
+        Route::get('/produk', [App\Http\Controllers\Superadmin\ProductController::class, 'index'])->name('superadmin.produk.index');
+        Route::get('/produk/add', [App\Http\Controllers\Superadmin\ProductController::class, 'add'])->name('superadmin.produk.add');
+        Route::post('/produk/store', [App\Http\Controllers\Superadmin\ProductController::class, 'store'])->name('superadmin.produk.store');
     });
 });
 
