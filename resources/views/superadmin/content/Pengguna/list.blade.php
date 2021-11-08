@@ -2,6 +2,7 @@
 @section('content')
 
     <a href="{{route("superadmin.pengguna.add")}}" class="btn btn-sm btn-primary">Tambah Data</a>
+    <a href="{{route("superadmin.pengguna.export")}}" class="btn btn-sm btn-success"><i class="fa fa-file-excel"></i> Download Excel</a>
 
     <table class="table">
         <thead>

@@ -30,6 +30,7 @@ Route::group(['middleware'=>'auth:superadmin'],function (){
         Route::post('/pengguna/update', [App\Http\Controllers\Superadmin\PenggunaController::class, 'update'])->name('superadmin.pengguna.update');
 
         Route::get('/pengguna/delete/{id}', [App\Http\Controllers\Superadmin\PenggunaController::class, 'delete'])->name('superadmin.pengguna.delete');
+        Route::get('/pengguna/export', [App\Http\Controllers\Superadmin\PenggunaController::class, 'export'])->name('superadmin.pengguna.export');
        //Group Categori
         Route::get('/kategori', [App\Http\Controllers\Superadmin\CategoryController::class, 'index'])->name('superadmin.kategori.index');
         Route::get('/kategori/add', [App\Http\Controllers\Superadmin\CategoryController::class, 'add'])->name('superadmin.kategori.add');

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Superadmin;
 
+use App\Exports\DataPengguna;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 use App\Models\Pengguna;
 
@@ -82,5 +84,8 @@ class PenggunaController extends Controller
         }catch (\Exception $e) {
             return redirect(route('superadmin.pengguna.index'))->with('pesan-gagal', 'Gagal menghapus data pengguna');;
         }
+    }
+    public function export(){
+        return Excel::download(new DataPengguna(), 'pengguna.xlsx');
     }
 }
