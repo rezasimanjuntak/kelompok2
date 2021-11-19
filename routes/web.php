@@ -46,6 +46,25 @@ Route::group(['middleware'=>'auth:superadmin'],function (){
         Route::get('/produk', [App\Http\Controllers\Superadmin\ProductController::class, 'index'])->name('superadmin.produk.index');
         Route::get('/produk/add', [App\Http\Controllers\Superadmin\ProductController::class, 'add'])->name('superadmin.produk.add');
         Route::post('/produk/store', [App\Http\Controllers\Superadmin\ProductController::class, 'store'])->name('superadmin.produk.store');
+        //Group Pasien
+        Route::get('/pasien', [App\Http\Controllers\Superadmin\PasienController::class, 'index'])->name('superadmin.pasien.index');
+        Route::get('/pasien/add', [App\Http\Controllers\Superadmin\PasienController::class, 'add'])->name('superadmin.pasien.add');
+        Route::post('/pasien/store', [App\Http\Controllers\Superadmin\PasienController::class, 'store'])->name('superadmin.pasien.store');
+        Route::get('/pasien/edit/{id}', [App\Http\Controllers\Superadmin\PasienController::class, 'edit'])->name('superadmin.pasien.edit');
+        Route::post('/pasien/update', [App\Http\Controllers\Superadmin\PasienController::class, 'update'])->name('superadmin.pasien.update');
+
+        Route::get('/pasien/delete/{id}', [App\Http\Controllers\Superadmin\PasienController::class, 'delete'])->name('superadmin.pasien.delete');
+        //Group transcation
+
+        Route::get('/transaction', [App\Http\Controllers\Superadmin\TransactionController::class, 'index'])->name('superadmin.transaction.index');
+        Route::get('/transaction/add', [App\Http\Controllers\Superadmin\TransactionController::class, 'add'])->name('superadmin.transaction.add');
+        Route::get('/transaction/detail/{id}', [App\Http\Controllers\Superadmin\TransactionController::class, 'detail'])->name('superadmin.transaction.detail');
+        Route::post('/transaction/store', [App\Http\Controllers\Superadmin\TransactionController::class, 'store'])->name('superadmin.transaction.store');
+        Route::get('/transaction/print/{id}', [App\Http\Controllers\Superadmin\TransactionController::class, 'print'])->name('superadmin.transaction.print');
+
+
+
+
     });
 });
 

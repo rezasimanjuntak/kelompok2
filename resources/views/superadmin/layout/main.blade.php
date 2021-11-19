@@ -69,7 +69,8 @@
                     <a class="collapse-item" href="{{route('superadmin.pengguna.index')}}">Admin</a>
                     <a class="collapse-item" href="{{route('superadmin.kategori.index')}}">Kategori Produk</a>
                     <a class="collapse-item" href="{{route('superadmin.produk.index')}}">Jenis Produk</a>
-                    <a class="collapse-item" href="cards.html">Transaksi</a>
+                    <a class="collapse-item" href="{{route('superadmin.pasien.index')}}">Pasien</a>
+                    <a class="collapse-item" href="{{route('superadmin.transaction.index')}}">Transaksi</a>
                 </div>
             </div>
         </li>
